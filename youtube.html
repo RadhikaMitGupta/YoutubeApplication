@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial;
+            background-color: rgb(198, 200, 202);
+        }
+
+        #container {
+            width: 99%;
+            height: 60px;
+            border: 1px solid whitesmoke;
+            background-color: white;
+            padding-top: 10px;
+            display: inline-block;
+          
+        }
+
+        #navbar {
+            display: flex;
+            width: 99%;
+            
+            top: 10px;
+
+            height: 100px;
+        }
+
+        #youtubeicon {
+
+            height: 99%;
+            width: 250px;
+            display: inline-block;
+            margin-left: 40px;
+        }
+
+        #search {
+
+            height: 50px;
+            width: 700px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .fa {
+            margin-left: 20;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #input {
+            padding: 1px;
+            font-size: 22px;
+            border: 1px solid grey;
+            float: left;
+            width: 90%;
+            background: white;
+            margin-left: 5px;
+            margin-bottom: 1px;
+            height: 100%;
+        }
+
+        button {
+            float: left;
+            width: 5%;
+            padding: 1px;
+            background: white;
+            color: black;
+            font-size: 22px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+            margin-right: 12px;
+            height: 100%;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        #sidebar {
+            height: 700px;
+            width: 200px;
+            position:fixed;
+            top: 80px;
+            left: 0;
+            background-color: white;
+            display: inline-block;
+        }
+
+        .dive {
+            height: 50px;
+            width: 99%;
+
+        }
+
+        .sideicon {
+            width: 35px;
+            height: 35px;
+
+        }
+        .appicon{
+            height: 30px;
+            width: 40px;
+            margin-left: 50px;
+        }
+        .tex {
+            text-align: right;
+            vertical-align: top;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #img {
+            margin-left: 100px;
+        }
+
+
+        #result {
+            display: inline-block;
+           margin-top: 10px;
+             margin-left: 220px;
+            display: grid;
+            grid-template-columns: repeat(4, 20%);
+            grid-gap: 2%;
+            justify-content: space-between;
+            width: 1470px;
+            background-color: white;
+        }
+        img{
+            height: 250px;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="navbar">
+            <div id="youtubeicon">
+                <i style="font-size:24px" class="fa">&#xf039;</i>
+               <a href="Youtube2.html"><i class="fab fa-youtube" style="font-size: 35px; color: red;"></i></a> 
+            </div>
+            <div id="search">
+
+                <input id="input" type="text" placeholder="Search.." name="search">
+                <button type="submit" onclick="myFunction()"><i class="fa fa-search"></i></button>
+                <i style="font-size:24px" class="fa">&#xf130;</i>
+
+            </div>
+            <img class="appicon" src="https://cdn-icons-png.flaticon.com/512/860/860832.png" />
+            <img class="appicon" src="https://cdn-icons-png.flaticon.com/512/876/876740.png">
+            <img class="appicon" src="https://cdn-icons-png.flaticon.com/512/2097/2097743.png" />
+            <img class="appicon"
+                src="https://cdn-icons.flaticon.com/png/512/3024/premium/3024605.png?token=exp=1638778418~hmac=63eaa55dff692366ea8556a71fa66e34">
+        </div>
+        <div id="sidebar">
+            <div class="dive">
+                <img class="sideicon"src="https://static.thenounproject.com/png/293-200.png" />
+                <a class="tex" href="Youtube2.html">Home</a>
+            </div>
+            <div class="dive">
+                <img
+                   class="sideicon" src="data:image/png;base64,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" />
+                <a class="tex" href="">Explore</a>
+            </div>
+            <div class="dive">
+                <img
+                   class="sideicon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEX///8AAADPz89hYWHMzMz09PSWlpZTU1P6+vr8/Pzv7+9aWlrc3Nxqamrr6+s8PDwdHR00NDRJSUmKioq/v7+mpqYlJSW1tbXl5eWvr68qKiqfn5+FhYV3d3ctLS3f3983NzcSEhIYGBiamppGRkb9MlNRAAADc0lEQVR4nO2di5LaMAxF1fAKITxDoEBblrb//41Nh+0MnS7UD1mSk3s+wNaZJMJRbEEEAAAAAAAAAACAQVMXstTihrNPsszEDUfChiMYwhCGMIQhDGEIQxjCEIYwhKFJw4Ww4ULc8DSV5SRuCAAAAAAAAAAAgAw5LUb2WHAWNqbCZSc3pjCEIQzVgSEMYagPDGEIQ31gCEMY6gNDH8qJRUpGQwAAAAAAAAAAYAhci7FNiiuDXdGctcsxLzk3RYxe2R60DRw4XIILNvsc/H5zOIYJLrUD92AZ4FflcgHvHCpfwZXtBPMv55WfYLnWjtibtV++yekZ/IPXs7jXjjaIvcc9utEONoiN+33aascaSOsqON9qhxrIdu5oWGhHGozrGrXRDjSYxtFwpx1oMDs3wVI7zgjcsmmlHWYEbqvTWjvMCNz6R+abSl2TKQwtA0MY2geG7IZr6W7D4oYzGv/kG80BBUOio2TVTsWQygvfgP9Dx7Bz/MI35Gu0DIlWX/kGfYWeYffGItLCTtOQaPyNb+Bn6BoS7ZPXYbUNaX658Q3+EeqGRJO0hTwDhl1aTfnVx4Qh0TVdWjViSOlWq2YMu9XqjW+WBwwZEiVZrZoyTJJWbRkSfWZfrVoz7NIqcxHAnmGXVll3fVg07NIq44rcpiGVfPsGjBp2jlxp1awhWxHAsCFTEcC0YZdW36InNG7IUAQwb0jUfo+aMAPDyNVqDoZxaTUPw25FHvwHKLkYXoNLOXkY9v0ujVvA2TeM/RJn3jD6Rcq4IcPLsGnDmmNbq2FDpqKUWcMJ12dwq4Y/2Ca0aXjkm8+k4b7n1USWBPqANcPwd4hn2DKsEuwjsmRYJulUaMjwdOOb5QEzhsnOwRsxLNIdrDJheE35L7QGDKu0mxTVDSepW70qG87bG9/QH6NryPmt9xmahoWAn6ahzA5hPUOpXd5qpxHEdurrGDJutHBA3HBBR9lGPuKGb7KnnnA6D4Y5AEMY2geGd/rf+aP/3Vv634GHpJdafDh2URpAJ6x8k6lrN7P+d6Trf1dBmmfaGdL5Eg6gu+cAOrRSGX8wQBr3NHOnEilRM3L2bgZd5fWTsfUW7BJqTs/i0vMWfSd9GwsmNl5Z9K/L2OaQcLaXsAv47lg0tvu17poixu9OWdWFTeoKf9QJAAAAAAAAAAAMhl+j43xZiEaB7gAAAABJRU5ErkJggg==" />
+                <a class="tex" href="">Subscription</a>
+            </div>
+            <hr>
+            <div class="dive">
+                <img
+                  class="sideicon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5tzuBy2otTNDQGzNCL3Rvqg63Zx2qxycT3yCWvvtvQw1rEWbjwww5SNSNA7-C1WxLhOI&usqp=CAU" />
+                <a class="tex" href="">Liberary</a>
+            </div>
+            <div class="dive">
+                <img class="sideicon" src="https://thumbs.dreamstime.com/b/history-gray-170719354.jpg" />
+                <a class="tex" href="">History</a>
+            </div>
+            <div class="dive">
+                <img
+                   class="sideicon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1R7XCOb0l9az-iq9vX0WDC2DIRxkzrChaw&usqp=CAU" />
+                <a class="tex" href=""> Your videos</a>
+            </div>
+            <div class="dive">
+                <img class="sideicon"src="https://cdn.iconscout.com/icon/free/png-256/watch-later-1781603-1513853.png" />
+                <a class="tex" href="">watch later</a>
+            </div>
+            <div class="dive">
+                <img class="sideicon"src="https://cdn4.iconfinder.com/data/icons/like-18/32/459-01-512.png" />
+                <a class="tex" href="">Liked videos</a>
+            </div>
+            <hr>
+            <div class="dive">
+                Subscription
+                <br>
+
+                radhika
+
+            </div>
+        </div>
+         
+             <div id="result"></div>
+         
+    </div>
+
+</body>
+
+</html>
+<script>
+  var api='AIzaSyD7ICPELnWrmd4xUqZ83AyunNYeuaGvGxk'
+    var url='https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=tesla&key=[YOUR_API_KEY]'
+    let result=document.getElementById('result')
+    async function myFunction(){
+         try{
+             var input=document.getElementById('input').value;
+            //let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${inp}&key=${API}&type=video`);
+             let res=await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${input}&key=${api}&type=video&maxResults=15&part=snippet`)
+             let data=await res.json()
+             console.log('data:',data)
+             let arr=data.items
+             appendvideo(arr)
+
+         }
+         catch (err){
+             console.log(err)
+         }
+     }
+     function appendvideo(arr){
+        arr.forEach(({snippet,id: {videoId}}) => {
+            let div=document.createElement('div')
+            let url=snippet.thumbnails.medium.url;
+            let img=document.createElement('img')
+            img.src=url;
+            let title=snippet.title
+           let tittle=document.createElement('h4')
+            tittle.textContent=title
+            div.append(img,tittle)
+            result.append(div)
+            let video_data={
+                snippet,
+                videoId,
+            }
+            div.onclick=() => {
+                showVideo(video_data)
+            }
+          
+            /*
+        console.log('videioid:',videoId)
+        let div=document.createElement('div')
+        let iframe=document.createElement('iframe');
+        iframe.src=`http://www.youtube.com/embed/${videoId}`;
+        iframe.width='460px'
+        iframe.height='260px';
+        iframe.setAttribute('allowfullscreen',true)
+        div.append(iframe)
+        result.append(div)
+        */
+    });
+     }
+     const showVideo=(video_data) => {
+         console.log('videoData:',video_data)
+            localStorage.setItem('clicked_video',JSON.stringify(video_data))
+            window.open('video.html')
+     };
+</script>
